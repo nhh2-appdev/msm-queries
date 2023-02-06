@@ -7,13 +7,23 @@ class DirectorsController < ActionController::Base
   end
 
   def youngest
-    render({ :template => "director_templates/director_youngest.html.erb"})
+    @youngest = Director.where.not({:dob => nil }).order({ :dob => :desc }).at(0)
+
+    render({ :template => "director_templates/youngest.html.erb"})
   end
 
   def wisest
     @oldest = Director.where.not({:dob => nil }).order({ :dob => :asc }).at(0)
 
     render({ :template => "director_templates/eldest.html.erb"})
+  end
+
+  def director_details
+    @an_id = params.fetch("an_id")
+    @the_director = Director.where({ :id => @an_id }).at(0)
+    @directed_movies = Movie.where({ :director_id => @an_id })
+
+    render({ :template => "director_templates/show.html.erb"})
   end
   
 end

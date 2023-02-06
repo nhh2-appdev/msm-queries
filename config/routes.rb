@@ -12,8 +12,14 @@ Rails.application.routes.draw do
   #directors_eldest
     get("/directors/eldest", { :controller => "directors", :action => "wisest"})
 
+  #directors_dynamic
+    get("/directors/:an_id", { :controller => "directors", :action => "director_details"})
+
   #movies
-    #get("/directors", { :controller => "directors", :action => "director_list"})
+    get("/movies", { :controller => "movies", :action => "movie_list"})
+
+  #movies_dynamic
+    get("/movies/:an_id", { :controller => "movies", :action => "movie_details"})
 
 
 end

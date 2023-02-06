@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+  <html>
+
+    <head>
+
+    </head>
+
+    <body>
+      <nav>
+        <a href="/">
+          Home
+        </a>
+      </nav>
+
+      <h1>
+        Movie #<%= @an_id %> details
+      </h1>
+
+      <nav>
+        <a href="/movies">
+          Go back
+        </a>
+      </nav>
+
+      <hr>
+
+        <dt>
+          Title
+        </dt>
+        <dd>
+          <%= @the_movie.title %>
+        </dd>
+
+        <dt>
+          Year
+        </dt>
+        <dd>
+          <%= @the_movie.year %>
+        </dd>
+          
+        <dt>
+          Duration
+        </dt>
+        <dd>
+          <%= @the_movie.duration %>
+        </dd>
+
+        <dt>
+          Description
+        </dt>
+        <dd>
+          <%= @the_movie.description %>
+        </dd>
+
+        <dt>
+          Image
+        </dt>
+        <dd>
+          <img src = <img src = <%= @the_movie.image %>>
+        </dd>
+
+        <dt>
+          Director
+        </dt>
+        <dd>
+          <%= @show_director.name %>
+        </dd>
+
+        <dt>
+          Created at
+        </dt>
+        <dd>
+          <%= @the_movie.created_at.strftime("%B %e, %Y") %>
+        </dd>
+
+        <dt>
+          Updated at
+        </dt>
+        <dd>
+          <%= @the_movie.updated_at.strftime("%B %e, %Y") %>
+        </dd>
+
+    <hr>
+
+    </body>
+  </html>
