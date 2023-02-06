@@ -13,13 +13,12 @@
       </nav>
 
       <h1>
-        List of all directors
+        Eldest Director
       </h1>
-
-      <hr>
-
-      Insert Table Here
+      
+      <p>
+        The eldest director in our dataset right now is <%= @oldest.name %>, born on <%= @oldest.dob.strftime("%B %e, %Y") %>.
+      </p>
 
     </body>
-
   </html>
