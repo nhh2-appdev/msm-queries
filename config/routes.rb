@@ -21,5 +21,10 @@ Rails.application.routes.draw do
   #movies_dynamic
     get("/movies/:an_id", { :controller => "movies", :action => "movie_details"})
 
+  #actors
+    get("/actors", { :controller => "actors", :action => "actor_list"})
+
+  #actors
+    get("/actors/:an_id", { :controller => "actors", :action => "actor_details"})
 
 end

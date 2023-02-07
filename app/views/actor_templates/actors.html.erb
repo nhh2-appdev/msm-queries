@@ -13,7 +13,7 @@
       </nav>
 
       <h1>
-        List of all movies
+        List of all actors
       </h1>
 
       <hr>
@@ -29,43 +29,29 @@
           </th>
 
           <th>
-            Title
+            Name
           </th>
 
           <th>
-            Year
-          </th>
-
-          <th>
-            Director
+            Dob
           </th>
 
           <th>
           </th>
         </tr>
 
-        <% @list_of_movies.each do |a_thing| %>
+        <% @list_of_actors.each do |a_thing| %>
           <tr>
             <td> <%= a_thing.id %> </td>
             <td> 
               <img src = <%= a_thing.image %>>
             </td>
-            <td> <%= a_thing.title %> </td>
-            <td> <%= a_thing.year %> </td>
-            <td> 
-              <% @director_key = a_thing.director_id %>
-              <% @corresponder = Director.where({ :id => @director_key}).at(0) %>
-              <%= @corresponder.name %>
-            </td>
+            <td> <%= a_thing.name %> </td>
+            <td> <%= a_thing.dob %> </td>
             <td>
-              <a href="movies/<%= a_thing.id %>">
+              <a href="actors/<%= a_thing.id %>">
                 Show details
               </a>
             </td>
           </tr>
         <% end %>
-      </table>
-
-    </body>
-
-  </html>
