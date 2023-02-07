@@ -11,11 +11,9 @@
           Home
         </a>
       </nav>
-
       <h1>
         Actor #<%= @an_id %> Details
       </h1>
-
       <nav>
         <a href="/actors">
           Go back
@@ -68,15 +66,49 @@
 
     <hr>
 
+    <table border="1">
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Year
+        </th>
+        <th>
+          Director
+        </th>
+        <th>
+          Character Name
+        </th>
+        <th>
+        </th>
+
         <% @acted_movies.each do |a_thing| %>
           <tr>
-            <td> <%= a_thing.movie_id %> </td>
-              <a href="movies/<%= a_thing.id %>">
+            <td>
+              <% @actors_movie = a_thing.movie_id %> 
+              <% @corresponding_film = Movie.where({ :id => @actors_movie}).at(0) %>
+              <%= @corresponding_film.title %>
+            </td>
+            <td>
+              <%= @corresponding_film.year %>
+            </td>
+            <td>
+              <% @director_key = @corresponding_film.director_id %>
+              <% @corresponder = Director.where({ :id => @director_key}).at(0) %>
+              <%= @corresponder.name %>
+            </td>
+            <td>
+              <% @an_id %>
+              <% @corresponder = Character.where({ :actor_id => @an_id}).where({ :movie_id => @corresponding_film}).at(0) %>
+              <%= @character_played = @corresponder.name %>
+            </td>
+            <td>
+              <a href="/movies/<%= @actors_movie %>">
                 Show details
               </a>
             </td>
           </tr>
         <% end %>
-
       </table>
     </body>

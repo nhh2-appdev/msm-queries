@@ -13,3 +13,12 @@ class ActorsController < ActionController::Base
     render({ :template => "actor_templates/show_actors.html.erb"})
   end
 end
+
+class MoviesController < ActionController::Base
+end
+
+class DirectorsController < ActionController::Base
+end
+
+class CharactersController < ActionController::Base
+end
